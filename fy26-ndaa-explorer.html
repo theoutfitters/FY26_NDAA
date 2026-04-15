@@ -8,39 +8,39 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0d0f10;
-    --surface: #141618;
-    --surface2: #1a1d1f;
-    --surface3: #212426;
-    --border: rgba(255,255,255,0.08);
-    --border-hover: rgba(255,255,255,0.16);
-    --text: #e8eaeb;
-    --text-muted: #7a8188;
-    --text-dim: #4a5058;
-    --am: #4a9eff;
-    --am-bg: rgba(74,158,255,0.1);
-    --am-border: rgba(74,158,255,0.3);
-    --add: #3ecf8e;
-    --add-bg: rgba(62,207,142,0.1);
-    --add-border: rgba(62,207,142,0.3);
-    --qual: #a78bfa;
-    --qual-bg: rgba(167,139,250,0.1);
-    --qual-border: rgba(167,139,250,0.3);
-    --dmsms: #fb923c;
-    --dmsms-bg: rgba(251,146,60,0.1);
-    --dmsms-border: rgba(251,146,60,0.3);
-    --acq: #f472b6;
-    --acq-bg: rgba(244,114,182,0.1);
-    --acq-border: rgba(244,114,182,0.3);
-    --red: #ff5c5c;
-    --yellow: #f5c518;
+    --bg: #f5f4f1;
+    --surface: #ffffff;
+    --surface2: #f0eeea;
+    --surface3: #e8e6e1;
+    --border: rgba(0,0,0,0.09);
+    --border-hover: rgba(0,0,0,0.18);
+    --text: #1a1c1e;
+    --text-muted: #555a61;
+    --text-dim: #9da3ab;
+    --am: #1a6bbf;
+    --am-bg: rgba(26,107,191,0.07);
+    --am-border: rgba(26,107,191,0.22);
+    --add: #0e7a50;
+    --add-bg: rgba(14,122,80,0.07);
+    --add-border: rgba(14,122,80,0.22);
+    --qual: #6d3fc9;
+    --qual-bg: rgba(109,63,201,0.07);
+    --qual-border: rgba(109,63,201,0.22);
+    --dmsms: #bf5a10;
+    --dmsms-bg: rgba(191,90,16,0.07);
+    --dmsms-border: rgba(191,90,16,0.22);
+    --acq: #b5166a;
+    --acq-bg: rgba(181,22,106,0.07);
+    --acq-border: rgba(181,22,106,0.22);
+    --red: #c0292a;
+    --yellow: #8a6800;
     --mono: 'IBM Plex Mono', monospace;
     --sans: 'IBM Plex Sans', sans-serif;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  html { font-size: 15px; }
+  html { font-size: 17px; }
 
   body {
     background: var(--bg);
@@ -467,7 +467,6 @@
     <div class="stat-pill"><span>$900.6B</span> authorized</div>
     <div class="stat-pill"><span>23</span> provisions</div>
     <div class="stat-pill"><span>7</span> mandated deadlines</div>
-    <div class="stat-pill"><span>1M+</span> AM parts targeted</div>
   </div>
 </header>
 
@@ -525,7 +524,7 @@
 const PANELS = {
   all: { title: "All provisions", desc: "All 23 NDAA provisions relevant to manufacturing, qualification, DMSMS, and acquisition lifecycle reform. Click any section to expand." },
   am: { title: "Advanced manufacturing", desc: "Provisions establishing advanced manufacturing programs, innovation hubs, workforce development, transition authorities, and civil reserve manufacturing capacity." },
-  add: { title: "Additive manufacturing", desc: "Provisions specific to additive manufacturing — mandated programs, foreign-machine prohibitions (§ 849, § 880), qualification reform, and qualification of up to 1M AM parts." },
+  add: { title: "Additive manufacturing", desc: "Provisions specific to additive manufacturing — mandated programs, foreign-machine prohibitions (§ 849, § 880), qualification reform, and cross-service validation sharing." },
   qual: { title: "Parts qualification", desc: "Provisions accelerating secondary source qualification, Expedited Qualification Panels (14-day decision clock), AM process certification, and cross-service validation sharing." },
   dmsms: { title: "DMSMS", desc: "Provisions directly addressing diminishing manufacturing sources and material shortages through AM production mandates, technical data inventory, material reclamation, and sustainment integration." },
   acq: { title: "Acquisition lifecycle", desc: "Provisions restructuring the acquisition lifecycle — Portfolio Acquisition Executive, Product Support Manager elevation, commercial-first procurement, and lifecycle sustainment integration." },
@@ -673,7 +672,7 @@ const PROVISIONS = [
     tags: ["am","add","qual"], imp: "high",
     body: `<p><b>Capstone AM provision.</b> The Joint Additive Manufacturing Working Group (JAMWG) will be co-chaired by the USD(A&S) AND the USD(R&E). Dual ownership bridges the R&D-to-procurement gap structurally.</p>
 <p>Requires DoD to issue overarching guidance standardizing advanced manufacturing approvals across military departments. The Expedited Acceptance and Qualification Process (§ 832) must be used to approve entire <b>advanced manufacturing processes</b> — not just individual parts. This is the difference between qualifying one part at a time and qualifying a process once for a class of parts.</p>
-<p>Targets up to 1 million qualified additively manufactured parts. Shifts qualification toward performance-based criteria and shared validation data across military branches.</p>`
+<p>Shifts qualification toward performance-based criteria and shared validation data across military branches.</p>`
   },
   {
     sec: "§ 1847", title: "Report on surge capacity in the defense industrial base",
@@ -757,7 +756,7 @@ function renderCards() {
     const primary = p.tags[0];
     const imp = IMP_META[p.imp];
     const tagHtml = p.tags.map(t => `<span class="tag ${TAG_META[t].cls}">${TAG_META[t].label}</span>`).join('');
-    const deadlineHtml = p.deadline ? `<span class="tag" style="background:rgba(245,197,24,0.1);color:#f5c518;border:1px solid rgba(245,197,24,0.3);font-family:var(--mono);font-size:10px;padding:2px 8px;border-radius:3px;">⧗ ${p.deadline}</span>` : '';
+    const deadlineHtml = p.deadline ? `<span class="tag" style="background:rgba(138,104,0,0.08);color:#8a6800;border:1px solid rgba(138,104,0,0.25);font-family:var(--mono);font-size:10px;padding:2px 8px;border-radius:3px;">⧗ ${p.deadline}</span>` : '';
     return `<div class="card">
       <div class="card-header" onclick="toggleCard('${id}')">
         <span class="card-sec sec-${primary}">${p.sec}</span>
